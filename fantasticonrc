@@ -1,0 +1,8 @@
+// eslint-disable-next-line no-undef
+module.exports = {
+    name: 'icon-font',
+    inputDir: './src/assets/icons/',
+    outputDir: './public/fonts/',
+    fontTypes: ['woff2'],
+    assetTypes: [],
+}

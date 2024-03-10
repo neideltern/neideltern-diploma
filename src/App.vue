@@ -16,6 +16,20 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style lang="stylus">
+*
+    padding: 0
+    margin: 0
+    min-width: 0
+    border: none
+    outline: none
+    background: none
+    box-sizing: border-box
+    text-decoration: none
+    font-family: inherit
+    -webkit-tap-highlight-color: transparent
+
 body
-    font-family: monospace
+    background: $body-background
+    color: $text-primary
+    font-family: $family-text
 </style>
