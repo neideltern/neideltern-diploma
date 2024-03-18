@@ -1,24 +1,42 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import HeaderButton from '@/components/VHeader/HeaderButton.vue'
-import VInput from '@/components/VInput.vue'
 </script>
 
 <template>
     <header class="header">
         <div class="top-bar">
-            <RouterLink to="/" class="link">Payment</RouterLink>
-            <RouterLink to="/" class="link">Shipping</RouterLink>
-            <RouterLink to="/" class="link">Warranty</RouterLink>
-            <RouterLink to="/" class="link">Support</RouterLink>
+            <div class="links">
+                <RouterLink to="/" class="link">Payment</RouterLink>
+                <RouterLink to="/" class="link">Shipping</RouterLink>
+                <RouterLink to="/" class="link">Warranty</RouterLink>
+                <RouterLink to="/" class="link">Support</RouterLink>
+            </div>
+            <div class="controls">
+                <div class="dropdown region">
+                    <img class="country-flag" src="/icons/flags/us-round.svg" alt="country" />
+                    <span class="currency">USD</span>
+                    <span class="divider">·</span>
+                    <span class="language">English</span>
+                    <i class="icon">chevron-down</i>
+                </div>
+                <div class="dropdown profile">
+                    <i class="icon profile-icon">account</i>
+                    <span class="sign-in">Sign in</span>
+                    <span class="divider">·</span>
+                    <span class="register">Register</span>
+                    <i class="icon">chevron-down</i>
+                </div>
+            </div>
         </div>
         <nav class="nav-bar">
             <RouterLink to="/" class="logo">Technomance</RouterLink>
-            <VInput placeholder="Search..." icon="search" />
-            <HeaderButton path="/builder" icon="builder" text="Builder" />
-            <HeaderButton path="/compare" icon="compare" text="Compare" />
-            <HeaderButton path="/favorite" icon="favorite" text="Favorite" />
-            <HeaderButton path="/profile" icon="account" text="Profile" />
+            <div class="buttons">
+                <HeaderButton path="/builder" icon="builder" text="Builder" />
+                <HeaderButton path="/compare" icon="compare" text="Compare" />
+                <HeaderButton path="/favorite" icon="favorite" text="Favorite" />
+                <HeaderButton path="/cart" icon="cart" text="Cart" />
+            </div>
         </nav>
         <div class="categories">
             <HeaderButton path="/categories" icon="categories" text="All categories" />
@@ -42,11 +60,17 @@ import VInput from '@/components/VInput.vue'
 .top-bar
     display: grid
     align-items: center
-    grid-template-columns: repeat(12, 1fr)
+    grid-template-columns: repeat(3, 1fr)
     height: 32px
     gap: $gap-sm
     padding: $gap-tn $page-padding-hor
     background: $body-background
+
+.links
+    grid-column: 1/2
+    display: grid
+    grid-auto-flow: column
+    gap: $gap-sm
 
 .link
     font-size: 12px
@@ -54,27 +78,56 @@ import VInput from '@/components/VInput.vue'
     font-family: $family-mono
     color: $text-tertiary
 
+.controls
+    grid-column: 3/4
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    justify-items: end
+    gap: $gap-sm
+
+.dropdown
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: end
+    gap: $gap-tn
+    width: max-content
+    line-height: 1
+    font-size: 14px
+    font-weight: 420
+    color: $text-tertiary
+
+    .country-flag
+        height: 18px
+        width: 18px
+
+    .profile-icon
+        font-size: 18px
+
 // nav-bar
 
 .nav-bar
     display: grid
     align-items: center
-    grid-template-columns: repeat(12, 1fr)
+    grid-template-columns: repeat(3, 1fr)
     height: 64px
     padding: $gap-tn $page-padding-hor
     gap: $gap-sm
     background: $element-background
 
-    .input
-        grid-column: 5 / 9
-
 .logo
-    grid-column: 1 / 3
+    grid-column: 1 / 2
+    width: max-content
     color: $text-primary
     font-family: $family-display
     font-size: 24px
     font-weight: 640
     line-height: 1
+
+.buttons
+    display: grid
+    grid-template-columns: repeat(4, 1fr)
+    gap: $gap-sm
 
 // categories
 
