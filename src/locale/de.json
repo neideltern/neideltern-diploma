@@ -1,3 +1,21 @@
 {
-    "hello": "Hallo Welt!"
+    "localeName": "Deutsch",
+    "countries": {
+        "US": "Vereinigte Staaten",
+        "UK": "Vereinigtes Königreich",
+        "DE": "Deutschland",
+        "FR": "Frankreich",
+        "IE": "Irland",
+        "CA": "Kanada",
+        "AU": "Australien",
+        "NZ": "Neuseeland"
+    },
+    "currencies": {
+        "USD": "US-Dollar",
+        "GBP": "Britisches Pfund",
+        "EUR": "Euro",
+        "CAD": "Kanadischer Dollar",
+        "AUD": "Australischer Dollar",
+        "NZD": "Neuseeland-Dollar"
+    }
 }

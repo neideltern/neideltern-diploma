@@ -18,6 +18,9 @@ defineProps({
             <div class="modal-body">
                 <slot></slot>
             </div>
+            <div class="modal-footer">
+                <slot name="footer"></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -79,6 +82,9 @@ defineProps({
 .modal-body
     flex-grow: 1
     overflow: overlay
+    display: flex
+    flex-direction: column
+    gap: $gap-md
 
 // modal header
 

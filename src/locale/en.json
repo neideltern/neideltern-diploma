@@ -1,7 +1,21 @@
 {
-    "hello": "Hello world!",
-    "product": {
-        "cart": "To cart",
-        "notify": "Notify me"
+    "localeName": "English",
+    "countries": {
+        "US": "United States",
+        "UK": "United Kingdom",
+        "DE": "Germany",
+        "FR": "France",
+        "IE": "Ireland",
+        "CA": "Canada",
+        "AU": "Australia",
+        "NZ": "New Zealand"
+    }, 
+    "currencies": {
+        "USD": "US Dollar",
+        "GBP": "UK Dollar",
+        "EUR": "EU Euro",
+        "CAD": "Canadian Dollar",
+        "AUD": "Australian Dollar",
+        "NZD": "NZ Dollar"
     }
 }

@@ -1,6 +1,11 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import HeaderButton from '@/components/VHeader/HeaderButton.vue'
+import { useModalStore } from '@/stores/modal'
+import { useSettingsStore } from '@/stores/settings'
+
+const modal = useModalStore()
+const settings = useSettingsStore()
 </script>
 
 <template>
@@ -13,13 +18,13 @@ import HeaderButton from '@/components/VHeader/HeaderButton.vue'
                 <RouterLink to="/" class="link">Support</RouterLink>
             </div>
             <div class="controls">
-                <div class="dropdown region">
-                    <img class="country-flag" src="/icons/flags/us-round.svg" alt="country" />
-                    <span class="currency">USD</span>
+                <button class="dropdown settings" @click="modal.openSettings">
+                    <img class="country-flag" :src="`/icons/flags/${settings.country.toLowerCase()}-round.svg`" :alt="`${settings.country.toLowerCase()}-flag`" />
+                    <span class="currency">{{ settings.currency }}</span>
                     <span class="divider">·</span>
-                    <span class="language">English</span>
+                    <span class="language">{{ $i18n.messages[settings.locale].localeName}}</span>
                     <i class="icon">chevron-down</i>
-                </div>
+                </button>
                 <div class="dropdown profile">
                     <i class="icon profile-icon">account</i>
                     <span class="sign-in">Sign in</span>

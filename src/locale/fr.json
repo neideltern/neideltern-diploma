@@ -1,3 +1,21 @@
 {
-    "hello": "Bonjour le monde!"
+    "localeName": "Français",
+    "countries": {
+        "US": "États-Unis",
+        "UK": "Royaume-Uni",
+        "DE": "Allemagne",
+        "FR": "France",
+        "IE": "Irlande",
+        "CA": "Canada",
+        "AU": "Australie",
+        "NZ": "Nouvelle-Zélande"
+    },
+    "currencies": {
+        "USD": "Dollar américain",
+        "GBP": "Livre sterling",
+        "EUR": "Euro européen",
+        "CAD": "Dollar canadien",
+        "AUD": "Dollar australien",
+        "NZD": "Dollar néo-zélandais"
+    }
 }

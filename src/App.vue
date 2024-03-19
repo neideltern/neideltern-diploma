@@ -1,11 +1,18 @@
 <script setup>
 import { RouterView } from 'vue-router'
 import VHeader from '@/components/VHeader/VHeader.vue'
+import SettingsModal from '@/modals/SettingsModal.vue'
+import { useModalStore } from '@/stores/modal'
+
+const modal = useModalStore()
 </script>
 
 <template>
     <VHeader />
     <RouterView />
+    <teleport to="#modal">
+        <SettingsModal :open-modal="modal.settingsModal" @close-modal="modal.closeModal" />
+    </teleport>
 </template>
 
 <style lang="stylus">
