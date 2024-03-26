@@ -3,6 +3,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 const app = createApp(App)
 
+// styles
+import '../src/assets/stylus/main.styl'
+
 // router
 import router from './router'
 app.use(router)

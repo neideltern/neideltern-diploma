@@ -27,5 +27,5 @@ const isMasked = ref(true)
 </template>
 
 <style lang="stylus" scoped>
-@import "../src/assets/stylus/components/fields.styl"
+@import '../src/assets/stylus/components/fields.styl'
 </style>

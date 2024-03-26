@@ -97,7 +97,7 @@ const selectedCountry = ref(countries.value.us)
 </template>
 
 <style lang="stylus" scoped>
-@import "../src/assets/stylus/components/fields.styl"
+@import '../src/assets/stylus/components/fields.styl'
 
 .input
     position: relative
@@ -125,7 +125,7 @@ const selectedCountry = ref(countries.value.us)
 .dropdown
     // position
     position: absolute
-    top: 100% + $gap-tn
+    top: 100%
     left: 0
     width: 100%
     // layout
@@ -133,7 +133,6 @@ const selectedCountry = ref(countries.value.us)
     flex-direction: column
     height: 150px
     overflow: overlay
-    box-shadow: 0 6px 32px transparentify($element-foreground-darken, .24)
     // styles
     gap: $gap-tn
     padding: $gap-tn

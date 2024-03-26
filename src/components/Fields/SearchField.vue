@@ -38,5 +38,5 @@ const isFocused = ref(false)
 </template>
 
 <style lang="stylus" scoped>
-@import "../src/assets/stylus/components/fields.styl"
+@import '../src/assets/stylus/components/fields.styl'
 </style>
