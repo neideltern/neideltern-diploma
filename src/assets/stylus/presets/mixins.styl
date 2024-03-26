@@ -1,0 +1,13 @@
+// MIXINS
+
+// text overflow with custom lines
+text-overflow($lines = 1)
+    if $lines == 1
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+    else 
+        overflow: hidden
+        display: -webkit-box
+        -webkit-box-orient: vertical
+        -webkit-line-clamp: $lines

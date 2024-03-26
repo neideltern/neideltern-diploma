@@ -17,7 +17,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             stylus: {
-                additionalData: `@import "../src/assets/global.styl"`
+                additionalData: `@import "../src/assets/stylus/global.styl"`
             }
         }
     }
