@@ -1,8 +1,6 @@
 <script setup>
 import VModal from '@/components/VModal.vue'
-import TextInput from '@/components/Fields/TextField.vue'
 import EmailInput from '@/components/Fields/EmailField.vue'
-import NumberInput from '@/components/Fields/NumberField.vue'
 import PasswordInput from '@/components/Fields/PasswordField.vue'
 import VButton from '@/components/VButton.vue'
 
@@ -13,50 +11,39 @@ defineProps({
 })
 
 // store
-
 import { useModalStore } from '@/stores/modal'
 const modal = useModalStore()
 </script>
 
 <template>
     <transition name="modal">
-        <v-modal title="Register" @close-modal="$emit('close-modal')" v-if="openModal">
+        <v-modal title="Sign in" @close-modal="$emit('close-modal')" v-if="openModal">
             <form class="input-form" onsubmit="return false">
                 <div class="input-group">
-                    <label class="input-label">Mobile number</label>
-                    <div class="input-grid">
-                        <TextInput id="register-first-name" placeholder="First name" />
-                        <TextInput id="register-last-name" placeholder="Last name" />
-                    </div>
+                    <label class="input-label" for="signin-email">Email address</label>
+                    <EmailInput id="signin-email" placeholder="address@mail.com" />
                 </div>
                 <div class="input-group">
-                    <label class="input-label" for="register-number">Mobile number</label>
-                    <NumberInput id="register-number" />
+                    <label class="input-label" for="signin-password">Password</label>
+                    <PasswordInput id="signin-password" placeholder="Password" />
                 </div>
-                <div class="input-group">
-                    <label class="input-label" for="register-email">Email address</label>
-                    <EmailInput id="register-email" placeholder="address@mail.com" />
+                <div class="text-group">
+                    <p class="input-text">
+                        Need help?
+                        <button class="input-link">Support</button>
+                    </p>
+                    <p class="input-text">
+                        Forgot password?
+                        <button class="input-link">Recovery</button>
+                    </p>
                 </div>
-                <div class="input-group">
-                    <label class="input-label" for="register-password">Password</label>
-                    <PasswordInput id="register-password" placeholder="Password" />
-                </div>
-                <div class="input-group">
-                    <label class="input-label" for="register-confirm-password">Confirm password</label>
-                    <PasswordInput id="register-confirm-password" placeholder="Confirm password" />
-                </div>
-                <p class="input-text">
-                    By continuing, you agree to Technomance's terms of the
-                    <button class="input-link">Conditions of Use</button> and
-                    <button class="input-link">User Agreement</button>
-                </p>
-                <v-button class="filled primary">Register</v-button>
+                <v-button class="filled primary">Sign in</v-button>
             </form>
             <template v-slot:footer>
                 <div class="continue-with">
                     <p class="input-text">
                         Don’t have an account?
-                        <button class="input-link" @click="modal.openSignIn()">Sign in</button>
+                        <button class="input-link" @click="modal.openRegister()">Register</button>
                     </p>
                     <div class="continue-divider">
                         <hr />
@@ -91,14 +78,6 @@ const modal = useModalStore()
     flex-direction: column
     gap: $gap-sm
 
-.input-grid
-    display: flex
-    flex-direction: row
-    gap: $gap-sm
-
-    .input
-        flex-grow: 1
-
 .input-label
     // container
     padding: 0 $gap-tn
@@ -118,6 +97,11 @@ const modal = useModalStore()
     font-weight: 420
     line-height: 1.4
     color: $text-tertiary
+
+.text-group
+    display: flex
+    flex-direction: row
+    justify-content: space-between
 
 .input-link
     text-decoration: underline

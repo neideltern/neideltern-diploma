@@ -14,9 +14,9 @@
     // styles
     height: 40px
     width: 100%
-    border-radius: $radius-sm
+    border-radius: $radius-md
     // text
-    font-size: 16px
+    font-size: 14px
     font-weight: 420
     font-family: $family-text
 

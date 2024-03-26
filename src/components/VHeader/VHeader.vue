@@ -1,9 +1,15 @@
 <script setup>
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import HeaderButton from '@/components/VHeader/HeaderButton.vue'
+
+// search input
+import SearchField from '@/components/Fields/SearchField.vue'
+const search = ref('')
+
+// modals
 import { useModalStore } from '@/stores/modal'
 import { useSettingsStore } from '@/stores/settings'
-
 const modal = useModalStore()
 const settings = useSettingsStore()
 </script>
@@ -19,23 +25,28 @@ const settings = useSettingsStore()
             </div>
             <div class="controls">
                 <button class="dropdown settings" @click="modal.openSettings">
-                    <img class="country-flag" :src="`/icons/flags/${settings.country.toLowerCase()}-round.svg`" :alt="`${settings.country.toLowerCase()}-flag`" />
-                    <span class="currency">{{ settings.currency }}</span>
+                    <img
+                        class="country-flag"
+                        :src="`/icons/flags/${settings.currentCountry}-round.svg`"
+                        :alt="`${settings.currentCountry}-flag`"
+                    />
+                    <span class="currency">{{ settings.currentCurrency }}</span>
                     <span class="divider">·</span>
-                    <span class="language">{{ $i18n.messages[settings.locale].localeName}}</span>
+                    <span class="language">{{ $t('localeName') }}</span>
                     <i class="icon">chevron-down</i>
                 </button>
                 <div class="dropdown profile">
                     <i class="icon profile-icon">account</i>
-                    <span class="sign-in">Sign in</span>
+                    <button class="sign-in" @click="modal.openSignIn()">Sign in</button>
                     <span class="divider">·</span>
-                    <span class="register">Register</span>
+                    <button class="register" @click="modal.openRegister()">Register</button>
                     <i class="icon">chevron-down</i>
                 </div>
             </div>
         </div>
         <nav class="nav-bar">
             <RouterLink to="/" class="logo">Technomance</RouterLink>
+            <SearchField v-model="search" />
             <div class="buttons">
                 <HeaderButton path="/builder" icon="builder" text="Builder" />
                 <HeaderButton path="/compare" icon="compare" text="Compare" />
