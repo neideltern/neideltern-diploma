@@ -24,14 +24,14 @@ defineProps({
                         class="select"
                         v-for="(country, index) in settings.availableCountries"
                         :key="index"
-                        :class="{ selected: country === settings.country }"
+                        :class="{ selected: country === settings.currentCountry }"
                         @click="settings.changeCountry(country)"
                     >
                         <img
-                            :src="`/icons/flags/${country.toLowerCase()}-rectangle.svg`"
+                            :src="`/icons/flags/${country}-rectangle.svg`"
                             :alt="`${country}-flag`"
                         />
-                        <span>{{ $i18n.messages[$i18n.locale].countries[country] }}</span>
+                        <span>{{ $t(`countries.${country}`) }}</span>
                         <i class="icon">check</i>
                     </button>
                 </div>
@@ -43,7 +43,7 @@ defineProps({
                         class="select"
                         v-for="(locale, index) in settings.availableLocales"
                         :key="index"
-                        :class="{ selected: locale === settings.locale }"
+                        :class="{ selected: locale === settings.currentLocale }"
                         @click="settings.changeLocale(locale)"
                     >
                         <span>{{ $i18n.messages[locale].localeName }}</span>
@@ -58,21 +58,18 @@ defineProps({
                         class="select"
                         v-for="(currency, index) in settings.availableCurrencies"
                         :key="index"
-                        :class="{ selected: currency === settings.currency }"
+                        :class="{ selected: currency === settings.currentCurrency }"
                         @click="settings.changeCurrency(currency)"
                     >
-                        <span
-                            >{{ currency }} ·
-                            {{ $i18n.messages[$i18n.locale].currencies[currency] }}</span
-                        >
+                        <span>{{ currency }} · {{ $t(`currencies.${currency}`) }}</span>
                         <i class="icon">check</i>
                     </button>
                 </div>
             </div>
             <template v-slot:footer>
-                <v-button class="filled primary" @click="$emit('close-modal')"
-                    >Save changes</v-button
-                >
+                <v-button class="filled primary" @click="$emit('close-modal')">
+                    Save changes
+                </v-button>
             </template>
         </v-modal>
     </transition>

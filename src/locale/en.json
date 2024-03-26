@@ -1,21 +1,24 @@
 {
     "localeName": "English",
     "countries": {
-        "US": "United States",
-        "UK": "United Kingdom",
-        "DE": "Germany",
-        "FR": "France",
-        "IE": "Ireland",
-        "CA": "Canada",
-        "AU": "Australia",
-        "NZ": "New Zealand"
-    }, 
+        "us": "United States",
+        "uk": "United Kingdom",
+        "de": "Germany",
+        "fr": "France",
+        "ie": "Ireland",
+        "ca": "Canada",
+        "au": "Australia",
+        "nz": "New Zealand"
+    },
     "currencies": {
-        "USD": "US Dollar",
-        "GBP": "UK Dollar",
-        "EUR": "EU Euro",
-        "CAD": "Canadian Dollar",
-        "AUD": "Australian Dollar",
-        "NZD": "NZ Dollar"
+        "usd": "US Dollar",
+        "gbp": "UK Dollar",
+        "eur": "EU Euro",
+        "cad": "Canadian Dollar",
+        "aud": "Australian Dollar",
+        "nzd": "NZ Dollar"
+    },
+    "header": {
+        "search": "Search"
     }
 }
